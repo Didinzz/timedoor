@@ -15,6 +15,16 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            keyframes: {
+                'spin-cylinder': {
+                    '0%': { transform: 'rotateX(-6deg) rotateY(0deg)' },
+                    '100%': { transform: 'rotateX(-6deg) rotateY(-360deg)' },
+                },
+            },
+            // 👇 PINDAHKAN KE DALAM EXTEND (sebelumnya di luar, makanya tidak jalan)
+            animation: {
+                'spin-cylinder': 'spin-cylinder 35s linear infinite',
+            },
         },
     },
 

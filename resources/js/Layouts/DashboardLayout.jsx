@@ -18,22 +18,28 @@ export default function DashboardLayout({ children, title, headerTitle = "Overvi
             if (!data) return;
             const opsi = { preset: 'smooth' };
             let judul = data;
+
             if (typeof data === 'object' && data.title) {
                 judul = data.title;
                 opsi.description = data.description;
                 opsi.borderWidth = 1.5;
                 opsi.borderColor = theme === 'dark' ? '#27272a' : '#ffffff';
             }
+
+            // Panggil toast sesuai tipenya
             if (type === 'success') gooeyToast.success(judul, opsi);
             if (type === 'error') gooeyToast.error(judul, opsi);
             if (type === 'info') gooeyToast.info(judul, opsi);
             if (type === 'warning') gooeyToast.warning(judul, opsi);
+            if (flash && flash[type]) {
+                flash[type] = null;
+            }
         };
-
         fireToast('success', flash?.success);
         fireToast('error', flash?.error);
         fireToast('info', flash?.info);
         fireToast('warning', flash?.warning);
+
     }, [flash, theme]);
 
     return (
