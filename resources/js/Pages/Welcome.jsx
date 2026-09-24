@@ -45,7 +45,7 @@ export default function Welcome({ auth, teachers, indicators }) {
 
                     <div className="mt-4">
                         {auth?.user ? (
-                            <Link href={route('dashboard')} className="text-primary hover:underline font-medium">
+                            <Link href={route('admin.dashboard')} className="text-primary hover:underline font-medium">
                                 Masuk ke Dashboard Admin
                             </Link>
                         ) : (

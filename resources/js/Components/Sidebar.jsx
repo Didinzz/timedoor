@@ -1,8 +1,50 @@
 import { Link } from '@inertiajs/react';
-import { FiFolder, FiList, FiMessageSquare } from 'react-icons/fi';
+import { FiCheckSquare, FiFolder, FiList, FiMessageSquare, FiUsers } from 'react-icons/fi';
 import { useTheme } from '@/Components/ThemeProvider';
+import { FaChalkboardTeacher } from 'react-icons/fa';
+import { LucideLayoutDashboard } from 'lucide-react';
 
 const MENU_CONFIG = [
+    // --- KATEGORI 2: KELOLA SURVEY ---
+    {
+        label: 'Dashboard',
+        icon: LucideLayoutDashboard,
+        routeName: 'admin.dashboard',
+        activePattern: 'admin.dashboard',
+        roles: ['admin']
+    },
+    {
+        isGroup: true,
+        label: "Kelola Survey",
+        roles: ["admin"]
+    },
+    {
+        label: "Daftar Pernyataan",
+        icon: FiCheckSquare,
+        routeName: "admin.questions.index",
+        activePattern: "admin.questions.*",
+        roles: ["admin"]
+    },
+    {
+        label: "Hasil Responden",
+        icon: FiMessageSquare,
+        routeName: "admin.responses.index", 
+        activePattern: "admin.responses.*",
+        roles: ["admin"]
+    },
+    // --- KATEGORI 1: MASTER DATA ---
+    {
+        isGroup: true,
+        label: "Master Data",
+        roles: ["admin"]
+    },
+    {
+        label: "Data Teacher",
+        icon: FaChalkboardTeacher,
+        routeName: "admin.teachers.index",
+        activePattern: "admin.teachers.*",
+        roles: ["admin"]
+    },
     {
         label: "Daftar Indikator",
         icon: FiFolder,
@@ -10,40 +52,9 @@ const MENU_CONFIG = [
         activePattern: "admin.indicators.*",
         roles: ["admin"]
     },
-    {
-        label: "Daftar Kriteria",
-        icon: FiList,
-        routeName: "admin.questions.index",
-        activePattern: "admin.questions.*",
-        roles: ["admin"]
-    },
-    // {
-    //     label: "Dashboard",
-    //     icon: LuLayoutDashboard,
-    //     routeName: "survey.create", 
-    //     activePattern: "dashboard",
-    //     roles: ["admin"]
-    // },
-    // {
-    //     isGroup: true,
-    //     label: "Kelola Survey",
-    //     roles: ["admin"]
-    // },
-    // {
-    //     label: "Daftar Kriteria",
-    //     icon: FiList,
-    //     routeName: "survey.create",
-    //     activePattern: "kriteria.*",
-    //     roles: ["admin"]
-    // },
-    // {
-    //     label: "Hasil Responden",
-    //     icon: FiMessageSquare,
-    //     routeName: "survey.create",
-    //     activePattern: "hasil.*",
-    //     roles: ["admin"]
-    // }
+   
 ];
+
 
 export default function Sidebar({ user, isOpen = true }) {
     const userRole = user?.role || 'admin';

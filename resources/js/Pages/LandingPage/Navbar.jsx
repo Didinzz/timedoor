@@ -35,7 +35,7 @@ export default function SurveyNavbar() {
 
                 <div className="flex items-center gap-2 md:gap-4">
                     {auth?.user ? (
-                        <Link href={route('dashboard')}>
+                        <Link href={route('admin.dashboard')}>
                             {/* Warna teks disesuaikan agar tetap terlihat elegan */}
                             <Button variant="ghost" className={`rounded-full font-bold hidden sm:flex px-5 transition-colors ${isScrolled ? 'text-gray-600 hover:text-gray-900' : 'bg-white/20 text-gray-800 hover:bg-white'}`}>
                                 Dashboard
